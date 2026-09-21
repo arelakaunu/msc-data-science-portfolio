@@ -1,0 +1,9 @@
+jupyterlab
+pandas
+matplotlib
+seaborn
+praw
+textblob
+streamlit
+plotly
+pyspark
