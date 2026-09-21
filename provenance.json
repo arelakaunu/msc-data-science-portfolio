@@ -1,0 +1,80 @@
+[
+  {
+    "source": "Machine Learning and Data Mining/Application of Machine Learning Methods to Real-World Data/cleaning-preprocessing-2.ipynb",
+    "published": "projects/human-activity-recognition/01-preprocessing.ipynb",
+    "source_sha256": "19a09f7cdee1a771bcdc8a0c1f1f48b2cce181e16e5dbd8ca98bab20a67b1ccb",
+    "changes": "Original MSc coursework, lightly prepared for the portfolio. Retained figures are historical submission outputs, not a fresh run. Missing datasets and methodological limitations are described in [README.md](README.md). Text logs and machine-specific metadata were removed; see the root EDITS.md for code fixes."
+  },
+  {
+    "source": "Machine Learning and Data Mining/Application of Machine Learning Methods to Real-World Data/add-features-remove-g-1.ipynb",
+    "published": "projects/human-activity-recognition/02-feature-engineering.ipynb",
+    "source_sha256": "40cb5612e73a4e00acd08eb83c96399dd8111fe1bc20dc41653f0dfb4c3eb007",
+    "changes": "Original MSc coursework, lightly prepared for the portfolio. Retained figures are historical submission outputs, not a fresh run. Missing datasets and methodological limitations are described in [README.md](README.md). Text logs and machine-specific metadata were removed; see the root EDITS.md for code fixes."
+  },
+  {
+    "source": "Machine Learning and Data Mining/Application of Machine Learning Methods to Real-World Data/eda-2.ipynb",
+    "published": "projects/human-activity-recognition/03-eda.ipynb",
+    "source_sha256": "0297114c97ba4db3faa3dfc0b53495a285e262f3be42eb62c74e20144fb16c23",
+    "changes": "Original MSc coursework, lightly prepared for the portfolio. Retained figures are historical submission outputs, not a fresh run. Missing datasets and methodological limitations are described in [README.md](README.md). Text logs and machine-specific metadata were removed; see the root EDITS.md for code fixes."
+  },
+  {
+    "source": "Machine Learning and Data Mining/Application of Machine Learning Methods to Real-World Data/gbmboost-default-2.ipynb",
+    "published": "projects/human-activity-recognition/04-gradient-boosting.ipynb",
+    "source_sha256": "5dd40a836eee03273c92d536798ccc9ac8d0151d554b0676450460e5aabe9681",
+    "changes": "Original MSc coursework, lightly prepared for the portfolio. Retained figures are historical submission outputs, not a fresh run. Missing datasets and methodological limitations are described in [README.md](README.md). Text logs and machine-specific metadata were removed; see the root EDITS.md for code fixes."
+  },
+  {
+    "source": "Machine Learning and Data Mining/Application of Machine Learning Methods to Real-World Data/rf-2.ipynb",
+    "published": "projects/human-activity-recognition/05-random-forest.ipynb",
+    "source_sha256": "da336ada4108667c50594c205d5a85e790b51c80c9c86a15d5c6a58fd5577010",
+    "changes": "Original MSc coursework, lightly prepared for the portfolio. Retained figures are historical submission outputs, not a fresh run. Missing datasets and methodological limitations are described in [README.md](README.md). Text logs and machine-specific metadata were removed; see the root EDITS.md for code fixes."
+  },
+  {
+    "source": "Machine Learning and Data Mining/Application of Machine Learning Methods to Real-World Data/ml_cw (4) (1).pdf",
+    "published": "projects/human-activity-recognition/report.pdf",
+    "source_sha256": "04402483b61569cd74e5a47020e190c0dfe8d64d68e2e9b6d71d99abea175199",
+    "changes": "Original report pages retained; PDF metadata normalised."
+  },
+  {
+    "source": "Big Data Computing/batch-data.ipynb",
+    "published": "projects/reddit-weather-sentiment/01-batch-collection.ipynb",
+    "source_sha256": "fcefc335997f4d1b86e0287f67cad9db7dc1dc0e7dd1e198811f6b3575a5b24d",
+    "changes": "Original coursework with security and small integration fixes. Outputs cleared. Requires your own Reddit API access; running makes live API requests. See README.md and the root EDITS.md."
+  },
+  {
+    "source": "Big Data Computing/new-streaming-1.ipynb",
+    "published": "projects/reddit-weather-sentiment/02-streaming.ipynb",
+    "source_sha256": "ccb0e95dc7f6413da6ffbc191a4ec550f7568b92a1bf1731bf6b136715154ddd",
+    "changes": "Original coursework with security and small integration fixes. Outputs cleared. Requires your own Reddit API access; running makes live API requests. See README.md and the root EDITS.md."
+  },
+  {
+    "source": "Big Data Computing/dashboard-1.py",
+    "published": "projects/reddit-weather-sentiment/dashboard.py",
+    "source_sha256": "536431c1799bfe37f7a37caf60279e085f27c39c97fb1e07558ae824b74aee80",
+    "changes": "Replaced absolute paths with project-relative paths and added a missing-data message."
+  },
+  {
+    "source": "Efficient algorithms for complex data sets/Mini-projects - MCMC in the Cloud/MCMC_Goodman_Foreman_Akeret_Complete-2.ipynb",
+    "published": "projects/ensemble-mcmc/ensemble-mcmc.ipynb",
+    "source_sha256": "f7b9511323781397869ea3fe8ebe80a7930c7315a177c6fbf614acd2284dd85c",
+    "changes": "Cleared outputs; reunited split class definitions, corrected stretch draw, stabilised log-likelihood, replaced pip commands with setup notes, and qualified production/cloud wording."
+  },
+  {
+    "source": "Statistical Methods in R/Portfolio II \u2013 Computer Assignment/problem-3-2.Rmd",
+    "published": "projects/statistical-test-power/test-power.Rmd",
+    "source_sha256": "3e492bae094da57cfb9f022dc034eda84aa274264cdd79a3a38d6ea50ebd19b8",
+    "changes": "Replaced assignment prompts with section titles, added seed, HTML output, and corrected a contradicted numerical statement in the conclusion; simulation loops retained."
+  },
+  {
+    "source": "Data Science Project/Arel Akaunu Thesis (1).pdf",
+    "published": "projects/squash-ratings/thesis.pdf",
+    "source_sha256": "9bdb423c3b0bbc01e9f154f41e328b9bcc7b01a71dd756b7c863e4ee1626a1fb",
+    "changes": "Original report pages retained; PDF metadata normalised."
+  },
+  {
+    "source": "Introduction to Data Analytics/Data analysis report/Data_Analysis_Report (18).pdf",
+    "published": "projects/multivariate-analysis/report.pdf",
+    "source_sha256": "0d58814d978d7fda5553e49ef6e989ff8190a136f6e14ae0938be7f0407d837d",
+    "changes": "Original report pages retained; PDF metadata normalised."
+  }
+]
