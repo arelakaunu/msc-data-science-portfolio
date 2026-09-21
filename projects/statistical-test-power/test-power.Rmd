@@ -1,0 +1,127 @@
+---
+title: "Statistical test power through simulation"
+author: "Arel Akaunu"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```{r}
+library(kSamples)
+set.seed(42) # Added for repeatable portfolio runs
+```
+
+## False positive rate under normality
+
+```{r}
+n_sims = 10000
+random = matrix(0,1000,n_sims)
+result = numeric(n_sims)
+
+for (i in 1:n_sims) {
+  random[,i] = rnorm(1000)
+  result[i] = shapiro.test(random[,i])$p.value
+}
+
+proportion = length(which(result<0.05))/length(result)*100
+delta = abs(proportion-5)
+paste0("In this simulation, the null hypothesis of normality is rejected ", signif(proportion,4),
+       "% of the time. This is ",
+       signif(delta,4) ,"% away from the expected 5% rejection rate.")
+```
+
+## Shapiro-Wilk power for uniform and heavy-tailed data
+
+
+```{r}
+n_sims_sw = 10000 # No. of simulations
+sample_sizes_sw = c(10,50,200) # Sample sizes
+result_sw = matrix(0,2*length(sample_sizes_sw),n_sims_sw) # Empty matrix to store result of SW test
+stat_power_sw = numeric(length(sample_sizes_sw)) # Empty vector to store statistical power
+dof = 3 # Degrees of freedom
+
+# Runs SW test n_sims_sw times for each sample size twice - once with uniform dist. and once with t-dist.
+# and stores SW test result in result_sw
+for (i in 1:(2*length(sample_sizes_sw))) {
+  for (j in 1:n_sims_sw) {
+    if (i<=length(sample_sizes_sw)) {
+      result_sw[i,j] = shapiro.test(runif(sample_sizes_sw[i]))$p.value
+    }
+    else {
+      result_sw[i,j] = shapiro.test(rt(sample_sizes_sw[i-length(sample_sizes_sw)],df=dof))$p.value
+    }
+  }
+}
+
+# Determines statistical power for each sample size and dist. type
+for (i in 1:(2*length(sample_sizes_sw))) {
+  stat_power_sw[i] = length(which(result_sw[i,]<0.05))/length(result_sw[i,])
+}
+
+# Present data in a table
+data_sw = matrix(c(rep('uniform',3),rep('t (dof=3)',3),rep(sample_sizes_sw,2),stat_power_sw),nrow=2*length(sample_sizes_sw),ncol=3)
+colnames(data_sw) = c("Distribution","n","Statistical Power")
+table_sw=as.table(data_sw)
+table_sw
+```
+
+## Two-sample Kolmogorov-Smirnov power
+
+
+```{r}
+n_sims_ks = 10000
+sample_sizes_ks = c(20,50,200,500)
+result_ks = matrix(0,length(sample_sizes_ks),n_sims_ks)
+stat_power_ks = numeric(length(sample_sizes_ks))
+
+# Runs KS test n_sims_ks times for each sample size
+# and stores KS test result in result_ks
+for (i in 1:length(sample_sizes_ks)) {
+  for (j in 1:n_sims_ks) {
+    result_ks[i,j] = ks.test(runif(sample_sizes_ks[i], min=-1.75, max=1.75),rnorm(sample_sizes_ks[i]))$p.value
+  }
+}
+
+# Determines statistical power for each sample size and dist. type
+for (i in 1:length(sample_sizes_ks)) {
+  stat_power_ks[i] = length(which(result_ks[i,]<0.05))/length(result_ks[i,])
+}
+
+# Present data in a table
+data_ks = matrix(c(rep(sample_sizes_ks,2),stat_power_ks),nrow=length(sample_sizes_ks),ncol=3)
+colnames(data_ks) = c("n1","n2","Statistical Power")
+table_ks = as.table(data_ks)
+table_ks
+```
+
+## Two-sample Anderson-Darling power
+
+
+```{r}
+n_sims_ad = 1000
+sample_sizes_ad = c(20,50,200,500)
+result_ad = matrix(0,length(sample_sizes_ad),n_sims_ad)
+stat_power_ad = numeric(length(sample_sizes_ad))
+
+# Runs AD test n_sims_ad times for each sample size
+# and stores AD test result in result_ad
+for (i in 1:length(sample_sizes_ad)) {
+  for (j in 1:n_sims_ad) {
+    result_ad[i,j] = ad.test(runif(sample_sizes_ad[i], min=-1.75, max=1.75),rnorm(sample_sizes_ad[i]))$ad["version 1:", " asympt. P-value"]
+  }
+}
+
+# Determines statistical power for each sample size and dist. type
+for (i in 1:length(sample_sizes_ad)) {
+  stat_power_ad[i] = length(which(result_ad[i,]<0.05))/length(result_ad[i,])
+}
+
+# Present data in a table
+data_ad = matrix(c(rep(sample_sizes_ad,2),stat_power_ad),nrow=length(sample_sizes_ad),ncol=3)
+colnames(data_ad) = c("n1","n2","Statistical Power")
+table_ad = as.table(data_ad)
+table_ad
+```
+
+## Interpretation
+
+
+The submitted run reported Anderson-Darling power of 0.891 and 0.319 for sample sizes 500 and 200, compared with 0.6374 and 0.2111 for Kolmogorov-Smirnov. These results apply to the distributions simulated here, rather than establishing a universally best test. The tables above are recalculated when this document is rendered; the added seed means they may differ from the submission. Small samples had low power. The original prose's claim that all small-sample powers were below 0.01 was inconsistent with its tables and has been removed.
