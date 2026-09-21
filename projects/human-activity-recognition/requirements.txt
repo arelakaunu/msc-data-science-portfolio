@@ -1,0 +1,10 @@
+jupyterlab
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn
+imbalanced-learn
+statsmodels
+PyWavelets
